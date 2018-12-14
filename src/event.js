@@ -7,24 +7,31 @@ class Event extends React.Component  {
   //   super(props);
   // }
 
+  styleIt(top, left, height, width) {
+    return ({container: {
+      position: 'absolute',
+      top: `${top*100}%`,
+      left: `${left*100}%`,
+      height: `${height*100}%`,
+      width: `${width*100}%`,
+      border: '1px solid blue'
+    }});
+  }
+
+
   render() {
     const events = API.mockResponse.events;
     const curdate = new Date();
     
     curdate.setTime(1506866940 * 1000);
     // * 1000 to turn seconds into ms
-    console.log(events);
-    console.log(events[0]);
-    console.log(events[0].videoStream);
-    console.log(events[0]);
 
-    // console.log(curdate.getTime());
+
+
     console.log(curdate);
-    
-    // console.log(curdate.getFullYear());
-    // console.log(curdate.getYear());
-    // console.log(curdate.getDate());
-    
+    console.log(events);
+ 
+
 
     return (
     <div>
@@ -32,15 +39,22 @@ class Event extends React.Component  {
 
 
       {events.map((event, idx) => {
+        const boundaries = event.predictions.map((prediction) => prediction.boundingBox);
+        
+        console.log(boundaries);
+        
         return(
           <div key={idx} className='event-wrapper'>
 
+            {boundaries.map((boundary) => {
+              return(
 
-            <div className='highlighter1'>
-            </div>
+                <div className='' style={this.styleIt(boundary.top, boundary.left, boundary.height, boundary.width).container}>
+              </div>
+              ); 
+
+            })}
             
-            <div className='highlighter2'>
-            </div>
   
               <img src={event.imageSource} className='event-image'/>
               

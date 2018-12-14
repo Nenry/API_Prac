@@ -11,7 +11,7 @@ class Score extends React.Component {
     return(
     <div className='score'>
       hi
-      {console.log(predictions)}
+      {/* {console.log(predictions)} */}
     
     </div>
     );
