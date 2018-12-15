@@ -1,7 +1,6 @@
 import React from 'react'; 
 import API from './event_data';
 import Score from './score';
-import Moment from 'react-moment';
 
 class Event extends React.Component  {
   // constructor(props) {
@@ -57,8 +56,7 @@ class Event extends React.Component  {
         
         return(
           <div key={idx} className='event-wrapper2'>
-            <Moment className='time' format='MM/DD/YYYY hh:mm A'>{curdate}</Moment>
-            <div>{event.videoStream}</div>
+            
             <div className='event-container'>
 
               {boundaries.map((boundary, idx2) => {
@@ -70,12 +68,12 @@ class Event extends React.Component  {
                 
               })}
             
-              {/* <Moment className='time' format='MM/DD/YYYY hh:mm A'>{curdate}</Moment> */}
   
               <img src={event.imageSource} className='event-image'/>
             </div>
               
               <Score predictions={event.predictions} />
+
           </div>
           
           );

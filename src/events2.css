@@ -1,38 +1,6 @@
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
 html,
 body,
+div,
 span,
 applet,
 object,
@@ -77,8 +45,8 @@ dl,
 dt,
 dd,
 ol,
- ul,
-li, 
+/* ul,
+li, */
 fieldset,
 form,
 label,
@@ -121,8 +89,7 @@ video {
   width: 100%;
 }
 
-HTML5 display-role reset for older browsers
-article,
+HTML5 display-role reset for older browsers article,
 aside,
 details,
 figcaption,
@@ -161,7 +128,7 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-} 
+}
 
 .all-events-wrapper {
   display: flex;
@@ -169,24 +136,20 @@ table {
   align-items: center;
 }
 
-.event-container{
+.event-container {
   width: 40%;
   height: 60%;
   position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
 }
 
-.event-image{
+.event-image {
   width: 100%;
   height: 95%;
   border: 1px solid red;
-  
+
 }
 
-.highlighter1{
+.highlighter1 {
   position: absolute;
   height: 31.4%;
   width: 13.5%;
@@ -195,41 +158,35 @@ table {
   left: calc(37.23%);
 }
 
-.highlighter2{
+.highlighter2 {
   position: absolute;
   height: 31.1%;
   width: 13.5%;
-    top: 9.51%;
-    left: 61.5%;
+  top: 9.51%;
+  left: 61.5%;
   border: 1px solid blue;
 }
 
-.score{
+.score {
   color: purple;
   position: relative;
 }
 
-.title{
+.title {
   height: auto;
   text-align: center;
 }
 
-.event-wrapper2{
+.event-wrapper2 {
   height: 100%;
   width: 100%;
-  display: flex;
+  /* display: flex; */
   /* flex-direction: column; */
-  align-items: center;
-  justify-content: center;
   margin: auto 0;
 
 }
 
-.score{
-  height:auto;
-  width: auto;
-}
-.time{
-  width: auto;
+.score {
   height: auto;
+  width: auto;
 }
