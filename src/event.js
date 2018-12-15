@@ -50,14 +50,14 @@ class Event extends React.Component  {
 
       {sortedEvents.map((event, idx) => {
         const boundaries = event.predictions.map((prediction) => prediction.boundingBox);
-        curdate.setTime(event.timestamp * 1000);
+        // curdate.setTime(event.timestamp * 1000);
 
         // console.log(curdate);
         // console.log(boundaries);
         
         return(
           <div key={idx} className='event-wrapper2'>
-            <Moment className='time' format='MM/DD/YYYY hh:mm A'>{curdate}</Moment>
+            {/* <Moment className='time' format='MM/DD/YYYY hh:mm A'>{curdate}</Moment> */}
             <div>{event.videoStream}</div>
             <div className='event-container'>
 
@@ -71,7 +71,7 @@ class Event extends React.Component  {
               })}
             
               {/* <Moment className='time' format='MM/DD/YYYY hh:mm A'>{curdate}</Moment> */}
-  
+              
               <img src={event.imageSource} className='event-image'/>
             </div>
               
