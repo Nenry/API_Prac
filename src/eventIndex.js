@@ -24,11 +24,11 @@ class EventIndex extends React.Component {
 
 
   closeModal() {
-    console.log('fucken work');
+    
     this.setState({
       modalIsOpen: false
     });
-    console.log(this.state.modalIsOpen);
+    
   }
 
     styleIt(top, left, height1, width1) {
