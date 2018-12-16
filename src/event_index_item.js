@@ -29,6 +29,10 @@ class EventIndexItem extends React.Component{
    this.closeModal = this.closeModal.bind(this);
  }
 
+ componentWillMount() {
+   Modal.setAppElement('body');
+ }
+
    styleIt(top, left, height, width) {
      return ({
        container: {
@@ -37,8 +41,7 @@ class EventIndexItem extends React.Component{
          left: `${left*100}%`,
          height: `${height*100}%`,
          width: `${width*100}%`,
-         border: '1px solid white',
-         borderRadius: '50%'
+         border: '2px solid rgb(24, 165, 78)'
        }
      });
    }
@@ -59,7 +62,6 @@ class EventIndexItem extends React.Component{
    this.setState({
      modalIsOpen: false
    });
-   console.log(this.state.modalIsOpen);
  }
 
 
@@ -70,15 +72,8 @@ class EventIndexItem extends React.Component{
    return(
     <div style={image } className='event-index-container'>
       <div className='stream-title'>
-        {/* <div className='stream-title-text'>
-
-        {this.props.event.videoStream} 
-        </div> */}
       </div> 
       
-      {/* <div className='time'>
-        <Moment format='MMM DD, YYYY @ hh:mm A'>{curdate}</Moment>
-      </div> */}
 
     <button className='modal-button'onClick={this.openModal}>
         <div className='stream-title-text'>
@@ -108,7 +103,7 @@ class EventIndexItem extends React.Component{
             
               <div className='event-container'>
 
-                {/* boundary coordinates */}
+          
                 {this.props.boundaries.map((boundary, idx2) => {
                   return(  
                   <div className='' key={idx2} 
@@ -118,13 +113,12 @@ class EventIndexItem extends React.Component{
                 })}
               
               
-              {/* event image */}
-                <img src={this.props.event.imageSource} className='event-image'/>
+                <img src={this.props.event.imageSource} className='event-image' alt='event'/>
               </div>
               
               <div className='event-info'>
 
-              {/* event name */}
+              
                 <div className='event-info-title'>{this.props.event.videoStream}</div>
                 <Score predictions={this.props.event.predictions} />
               </div>

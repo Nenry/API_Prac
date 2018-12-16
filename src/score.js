@@ -8,20 +8,10 @@ class Score extends React.Component {
   render() {
     const predictions = this.props.predictions;
 
-    // console.log(scores);
-    // const scores = predictions.map(prediction => {
-    //   if (prediction.hasOwnProperty('scores')) {
-    //     return prediction;
-    //   }
-    // });
-    
-    // console.log(scores);
-    // console.log(predictions);
     return(
     <div className='score'>
         <ul>
       {predictions.map((prediction, idx) => {
-        // console.log('scoreObj', scoreObj);
         return (
 
           
