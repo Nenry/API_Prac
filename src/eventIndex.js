@@ -53,7 +53,7 @@ class EventIndex extends React.Component {
     return(
       <div className='event-index-wrapper'>
         <div className='list-header'>Event Predictions</div>
-        <input type='text' placeholder='Filter label name here' value={this.state.filterLabel}
+        <input type='text' placeholder='Filter label or score' value={this.state.filterLabel}
         onChange={(e) => this.setState({filterLabel: e.target.value})}
         />
         <ul className='event-index-list'>
@@ -72,7 +72,9 @@ class EventIndex extends React.Component {
                 predictions.map((prediction) => {
                   return(
                     prediction.scores.map((scoreObj, idx2) => {
-                      if (scoreObj.label.toLowerCase().includes(this.state.filterLabel.toLowerCase())) {
+                      if (scoreObj.label.toLowerCase().includes(this.state.filterLabel.toLowerCase())
+                      || scoreObj.score === parseInt(this.state.filterLabel)
+                      ) {
                         return (<EventIndexItem key={idx2} event={event} boundaries={boundaries}/>);
                       }
                     })
