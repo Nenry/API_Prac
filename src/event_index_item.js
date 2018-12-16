@@ -2,6 +2,7 @@ import React from 'react';
 import Moment from 'react-moment';
 import Modal from 'react-modal';
 import Score from './score';
+
 const customStyles = {
   content: {
     top: '50%',
@@ -25,7 +26,6 @@ class EventIndexItem extends React.Component{
    };
 
    this.openModal = this.openModal.bind(this);
-   // this.afterOpenModal = this.afterOpenModal.bind(this);
    this.closeModal = this.closeModal.bind(this);
  }
 
@@ -53,10 +53,6 @@ class EventIndexItem extends React.Component{
 
  }
 
- afterOpenModal() {
-   // references are now sync'd and can be accessed.
-   // this.subtitle.style.color = '#f00';
- }
 
  closeModal() {
    this.setState({
@@ -68,7 +64,7 @@ class EventIndexItem extends React.Component{
  render() {
     const curdate = new Date();
     curdate.setTime(this.props.event.timestamp * 1000);
-    const image = {backgroundImage: `url(${this.props.event.imageSource})`}
+    const image = {backgroundImage: `url(${this.props.event.imageSource})`};
    return(
     <div style={image } className='event-index-container'>
       <div className='stream-title'>
