@@ -71,13 +71,13 @@ class EventIndex extends React.Component {
     return(
       <div className='event-index-wrapper'>
         <div>List of Events</div>
-        <div className='category-titles-container'>
+        {/* <div className='category-titles-container'>
 
           <div className='category-titles'>
             <div className='stream-title'>Stream Name</div>
             <div className='time'>Time</div>
           </div>
-        </div>
+        </div> */}
         <ul className='event-index-list'>
         
 

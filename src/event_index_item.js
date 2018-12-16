@@ -9,7 +9,10 @@ const customStyles = {
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
+    transform: 'translate(-50%, -50%)',
+    backgroundColor: 'rgb(31, 131, 170)',
+    width: 'auto'
+    
   }
 };
 
@@ -34,7 +37,8 @@ class EventIndexItem extends React.Component{
          left: `${left*100}%`,
          height: `${height*100}%`,
          width: `${width*100}%`,
-         border: '1px solid blue'
+         border: '1px solid white',
+         borderRadius: '50%'
        }
      });
    }
@@ -52,7 +56,6 @@ class EventIndexItem extends React.Component{
  }
 
  closeModal() {
-   console.log('fucken work');
    this.setState({
      modalIsOpen: false
    });
@@ -63,18 +66,33 @@ class EventIndexItem extends React.Component{
  render() {
     const curdate = new Date();
     curdate.setTime(this.props.event.timestamp * 1000);
+    const image = {backgroundImage: `url(${this.props.event.imageSource})`}
    return(
-    <div className='event-index-container'>
+    <div style={image } className='event-index-container'>
       <div className='stream-title'>
+        {/* <div className='stream-title-text'>
+
+        {this.props.event.videoStream} 
+        </div> */}
+      </div> 
+      
+      {/* <div className='time'>
+        <Moment format='MMM DD, YYYY @ hh:mm A'>{curdate}</Moment>
+      </div> */}
+
+    <button className='modal-button'onClick={this.openModal}>
         <div className='stream-title-text'>
 
         {this.props.event.videoStream} 
         </div>
-      </div> 
-      
-      <Moment className='time' format='MMM DD, YYYY @ hh:mm A'>{curdate}</Moment>
-
-    <button onClick={this.openModal}>Open Modal</button>
+    
+      <div className='time'>
+        <Moment format='MMM DD, YYYY @ hh:mm A'>{curdate}</Moment>
+      </div>
+      <div className='prediction-text'>
+        View Predictions
+      </div>
+    </button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -83,28 +101,33 @@ class EventIndexItem extends React.Component{
           contentLabel="Example Modal"
         >
 
-     
-          <button onClick={this.closeModal}>close</button>
-                   <div className='event-wrapper2'>
-            {/* <Moment className='time' format='MM/DD/YYYY hh:mm A'>{curdate}</Moment> */}
-            <div>{this.props.event.videoStream}</div>
-            <div className='event-container'>
-
-              {this.props.boundaries.map((boundary, idx2) => {
-                return(
-                  
-                  <div className='' key={idx2} style={this.styleIt(boundary.top, boundary.left, boundary.height, boundary.width).container}>
-                </div>
-                ); 
-                
-              })}
+          <div className='modal-close'>
+            <div className='x-text' onClick={this.closeModal}>X</div>
+          </div>    
+            <div className='event-wrapper2'>
             
-              {/* <Moment className='time' format='MM/DD/YYYY hh:mm A'>{curdate}</Moment> */}
+              <div className='event-container'>
+
+                {/* boundary coordinates */}
+                {this.props.boundaries.map((boundary, idx2) => {
+                  return(  
+                  <div className='' key={idx2} 
+                  style={this.styleIt(boundary.top, boundary.left, boundary.height, boundary.width).container
+                  }></div>
+                  ); 
+                })}
               
-              <img src={this.props.event.imageSource} className='event-image'/>
-            </div>
               
-              <Score predictions={this.props.event.predictions} />
+              {/* event image */}
+                <img src={this.props.event.imageSource} className='event-image'/>
+              </div>
+              
+              <div className='event-info'>
+
+              {/* event name */}
+                <div className='event-info-title'>{this.props.event.videoStream}</div>
+                <Score predictions={this.props.event.predictions} />
+              </div>
           </div>
         </Modal>
 

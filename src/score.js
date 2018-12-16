@@ -25,15 +25,19 @@ class Score extends React.Component {
         return (
 
           
-
-          prediction.scores.map((scoreObj, idx1) => {
+          <div key={idx}>
+            <div className='event-info-prediction'>Prediction {idx + 1}</div>
+          {prediction.scores.map((scoreObj, idx1) => {
             return (
+              
+
               <li key={idx1} className='score'>{scoreObj.label}, Score: {scoreObj.score}</li>
+              
               );
-            })
+            })}
           
         
-          );
+          </div>);
           
         })}
       
